@@ -42,17 +42,29 @@ python
 ## Repo structure:
 
 genai-output-validator/
+
 ├── src/
-│   ├── schemas.py        # Strict Pydantic contract (extra=forbid)
-│   ├── sanitizer.py      # Controlled, traceable sanitization
-│   ├── validator.py      # validate_output() fail-fast wrapper
-│   └── demo.py           # Runs bad samples, prints verdicts (never crashes)
+
+│   ├── schemas.py 
+
+│   ├── sanitizer.py 
+
+│   ├── validator.py   
+
+│   └── demo.py     
+
 ├── samples/
-│   └── bad_outputs.py    # 10 intentionally bad LLM outputs (dicts + JSON strings)
+
+│   └── bad_outputs.py 
+
 ├── tests/
-│   ├── conftest.py       # Ensures imports work in pytest/CI
-│   └── test_validator.py # Minimal unit tests
+
+│   ├── conftest.py  
+
+│   └── test_validator.py 
+
 ├── README.md
+
 └── PROTOCOL.md
 
 ## How to run
