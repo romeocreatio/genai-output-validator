@@ -73,69 +73,73 @@ genai-output-validator/
 python -m venv .venv
 
 
-Windows PowerShell:
-"".\.venv\Scripts\Activate.ps1""
+- Windows PowerShell:
+"" .\.venv\Scripts\Activate.ps1 ""
 
-Linux/macOS:
-""source .venv/bin/activate""
+- Linux/macOS:
+"" source .venv/bin/activate ""
 
 
-"pip install -r requirements.txt"
+- "pip install -r requirements.txt"
 
-2) Demo (never crashes, exit code 0)
+2) Demo (never crashes, exit code 0) 
 "python -m src.demo"
 
 
 You will see accepted vs rejected verdicts for each intentionally bad case.
 
-3) Tests
+3) Tests 
 "pytest -q"
 
 **Failure catalogue (samples)**
 
-The repo includes realistic failure modes:
+- The repo includes realistic failure modes:
 
-invalid / non-parseable JSON
+- invalid / non-parseable JSON
 
-missing required fields
+- missing required fields
 
-wrong types ("0,87", "87%")
+- wrong types ("0,87", "87%")
 
-invalid labels
+- invalid labels
 
-out-of-range probability
+- out-of-range probability
 
-too-short reason
+- too-short reason
 
-invalid model_version
+- invalid model_version
 
-unexpected fields (debug)
+- unexpected fields (debug)
 
-invalid timestamps (regional formats)
+- invalid timestamps (regional formats)
 
-format drift (wrong key names)
+- format drift (wrong key names)
 
 
 ## Conceptual FastAPI integration
 
 In a FastAPI endpoint, treat the LLM output as untrusted input:
 
-""" Python
 
 from fastapi import FastAPI, HTTPException
+
 from src.validator import validate_output
 
 app = FastAPI()
 
 @app.post("/predict")
+
 def predict():
+
     raw_llm_output = call_llm_somehow()  # dict or JSON string
+    
     verdict = validate_output(raw_llm_output)
 
     if verdict["status"] == "rejected":
+    
         raise HTTPException(status_code=422, detail=verdict["errors"])
 
     model = verdict["data"]
+    
     return model.model_dump()
     
-"""
