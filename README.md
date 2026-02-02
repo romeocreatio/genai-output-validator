@@ -71,21 +71,24 @@ genai-output-validator/
 
 1) Setup
 python -m venv .venv
+
+"""
 # Windows PowerShell:
 # .\.venv\Scripts\Activate.ps1
 # Linux/macOS:
 # source .venv/bin/activate
+"""
 
-pip install -r requirements.txt
+"pip install -r requirements.txt"
 
 2) Demo (never crashes, exit code 0)
-python -m src.demo
+"python -m src.demo"
 
 
 You will see accepted vs rejected verdicts for each intentionally bad case.
 
 3) Tests
-pytest -q
+"pytest -q"
 
 **Failure catalogue (samples)**
 
