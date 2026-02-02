@@ -72,13 +72,13 @@ genai-output-validator/
 1) Setup
 python -m venv .venv
 
-"""
+
 Windows PowerShell:
-.\.venv\Scripts\Activate.ps1
+"".\.venv\Scripts\Activate.ps1""
 
 Linux/macOS:
-source .venv/bin/activate
-"""
+""source .venv/bin/activate""
+
 
 "pip install -r requirements.txt"
 
