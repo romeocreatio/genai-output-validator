@@ -1,9 +1,9 @@
 # GenAI Output Validator (Pydantic, fail-fast)
 
 **context:**  
-> “LLMs are probabilistic components. I never trust raw outputs.  
+> LLMs are probabilistic components. I never trust raw outputs.  
 > I enforce a strict contract with Pydantic, with controlled sanitization  
-> and fail-fast validation, so the downstream system never breaks.”
+> and fail-fast validation, so the downstream system never breaks.
 
 ## Why this exists
 
