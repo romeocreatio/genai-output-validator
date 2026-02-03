@@ -34,21 +34,33 @@ L’objectif n’est pas de “faire de l’IA”, mais de protéger un système
 - Aucune autre dépendance n’est justifiée pour ce projet.
 
 ## Arborescence du projet
+
 genai-output-validator/
 │
+
 ├── src/
+
 │   ├── schemas.py        # Contrat strict Pydantic
+
 │   ├── sanitizer.py      # Sanitation contrôlée
+
 │   ├── validator.py      # Validation fail-fast
+
 │   └── demo.py           # Exécution démonstrative
 │
+
 ├── samples/
+
 │   └── bad_outputs.py    # Sorties LLM volontairement incorrectes
 │
+
 ├── tests/
+
 │   └── test_validator.py # Tests unitaires minimaux
 │
+
 ├── README.md
+
 └── PROTOCOL.md
 
 ## Pourquoi les sorties LLM sont fondamentalement instables
